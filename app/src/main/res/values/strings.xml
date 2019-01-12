@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">weibo</string>
+    <string name="fetch">fetching</string>
+    <string name="home">Home</string>
+    <string name="post">Post</string>
+    <string name="me">Me</string>
+    <string name="my_post">My Post</string>
+    <string name="login">Login</string>
+    <string name="post_title_hint">The title for your post</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Cancle</string>
+    <string name="dialog_note">Note</string>
+    <string name="dialog_login_note">You need to Log in first!</string>
+    <string name="logout">Log out</string>
+    <string name="log_out_toast">Successfully logged out!</string>
+    <string name="suc_post_note">Sucessfully posted!</string>
+    <string name="warning">Warning</string>
+    <string name="unreachable_server">Can\'t reach the server right now,try again later.</string>
+    <string name="login_note">press the button below to log in.</string>
+
+</resources>
