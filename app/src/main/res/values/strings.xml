@@ -17,5 +17,6 @@
     <string name="warning">Warning</string>
     <string name="unreachable_server">Can\'t reach the server right now,try again later.</string>
     <string name="login_note">press the button below to log in.</string>
+    <string name="alert">Alert</string>
 
 </resources>

@@ -1,5 +1,4 @@
 package com.example.asus.weibo;
-
 import android.util.Log;
 
 import org.json.JSONException;
@@ -13,12 +12,16 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 
+
+
 public class HttpAgent {
     private static final String TAG = "HttpAgent";
 
     public static byte[] getUrlBytes(String urlSpec) throws IOException {
         URL url = new URL(urlSpec);
         HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+        connection.setConnectTimeout(1000);
+        connection.setReadTimeout(1000);
         try {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             InputStream in = connection.getInputStream();
@@ -50,7 +53,7 @@ public class HttpAgent {
             JSONObject jsonObject=new JSONObject(JSONString);
             return jsonObject;
         }catch (IOException ioe){
-            Log.e(TAG,"Failed to fetch JSON",ioe);
+            Log.e(TAG,"Failed to fetch JSON",ioe.fillInStackTrace());
         }catch (JSONException je){
             Log.e(TAG,"Failed to parse JSON",je);
         }
@@ -66,16 +69,16 @@ public class HttpAgent {
 
         String paramsString = parseParameters(params, encode);//获得请求体
         Log.i(TAG,"URL:"+strUrlPath);
-        Log.i(TAG,"params:"+paramsString);
+        Log.i(TAG,"parameters:"+paramsString);
         try{
             String JSONString=getUrlString(strUrlPath+paramsString);
             Log.i(TAG,"received JSON:"+JSONString);
             JSONObject jsonObject=new JSONObject(JSONString);
             return jsonObject;
         }catch (IOException ioe){
-            Log.e(TAG,"Failed to get response from the server"+ioe);
+            Log.e(TAG,"Failed to get response from the server:"+ioe);
         }catch (JSONException je){
-            Log.e(TAG,"Failed to parse JSON",je);
+            Log.e(TAG,"Failed to parse JSON:",je);
         }
         return null;
     }
@@ -93,7 +96,6 @@ public class HttpAgent {
                         .append("=")
                         .append(URLEncoder.encode(entry.getValue(), encode))
                         .append("&");
-                Log.i(TAG,"Stringbuffer:"+stringBuffer);
             }
             stringBuffer.deleteCharAt(stringBuffer.length() - 1);    //删除最后的一个"&"
         } catch (Exception e) {
