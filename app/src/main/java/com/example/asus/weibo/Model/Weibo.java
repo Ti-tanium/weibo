@@ -43,12 +43,19 @@ public class Weibo implements Serializable,Cloneable{
         forwardCount=0;
         title=stitle;
         detail=sdetail;
+    }
+
+    public Weibo(){
 
     }
 
-    public int getCommentCount(){
+    public String getCommentCount(){
         String[] a=comments.split("`");
-        return a.length;
+        return a.length+"";
+    }
+
+    public String getThumbupCountString(){
+        return thumpupCount+"";
     }
 
     /** 乐观锁 */

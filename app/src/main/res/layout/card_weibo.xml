@@ -3,26 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
-        tools:targetApi="lollipop"
+        android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:stateListAnimator="@drawable/lift_on_touch"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="4dp"
         app:cardUseCompatPadding="true"
+        android:padding="10dp"
         app:cardPreventCornerOverlap="false">
+
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -37,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/avatar"
+                    android:id="@+id/card_avatar"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:background="@color/backgrount_light_gray" />
@@ -49,14 +47,14 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/nickname"
+                        android:id="@+id/card_nickname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:text="nickname" />
 
                     <TextView
-                        android:id="@+id/post_time"
+                        android:id="@+id/card_post_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2019/1/9" />
@@ -73,67 +71,82 @@
                 android:orientation="vertical"
 
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                >
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:id="@+id/title"
-                    android:textColor="@color/dark_font_color"
-                    />
-                <TextView
+                    android:id="@+id/card_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:id="@+id/detail"
-                    android:textColor="@color/light_font_color"
-                    />
+                    android:textColor="@color/dark_font_color" />
+
+                <TextView
+                    android:id="@+id/card_view_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/light_font_color" />
+
+                <ImageView
+                    android:id="@+id/card_post_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:background="@color/backgrount_light_gray" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="8dp"
+
+            <ImageView
+                android:id="@+id/card_comment_image"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="2dp"
                 android:layout_marginBottom="8dp"
-                android:orientation="horizontal"
+                android:src="@drawable/comment"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_comment_count"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+            <TextView
+                android:id="@+id/card_comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_heart_btn"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+            <com.sackcentury.shinebuttonlib.ShineButton
+                android:id="@+id/card_heart_btn"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="8dp"
+                android:src="@android:color/darker_gray"
+                app:allow_random_color="false"
+                app:btn_color="@android:color/darker_gray"
+                app:btn_fill_color="@android:color/holo_green_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_thumbup_count"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                app:siShape="@raw/heart" />
+
+            <TextView
+                android:id="@+id/card_thumbup_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/comment"
-                        android:layout_margin="8dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/comment_count"
-                        android:layout_marginLeft="8dp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/thumb_up"
-                        android:layout_margin="8dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/thumbup_count"
-                        />
-                </LinearLayout>
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

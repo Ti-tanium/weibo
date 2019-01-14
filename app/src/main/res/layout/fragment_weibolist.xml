@@ -8,11 +8,15 @@
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:overScrollMode="never"
-            android:background="#fff" />
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:background="#fff" />
+        </ScrollView>
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </android.support.constraint.ConstraintLayout>

@@ -4,17 +4,13 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.CursorLoader;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,7 +63,7 @@ public class PostFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_post,container,false);
         mTitle=(EditText)view.findViewById(R.id.title);
         mDetail=(EditText)view.findViewById(R.id.detail);
-        mPostImage=(ImageView)view.findViewById(R.id.post_image);
+        mPostImage=(ImageView)view.findViewById(R.id.detail_post_image);
         mPostBtn=(Button)view.findViewById(R.id.post_btn);
         mUserId=Utils.getPreference(getActivity()).getString(LoginFragment.KEY_LOGIN_ACCOUNT,null);
         mPostBtn.setOnClickListener(new View.OnClickListener() {
@@ -147,10 +143,12 @@ public class PostFragment extends Fragment {
             params.put("title",mWeibo.getTitle());
             params.put("detail",mWeibo.getDetail());
             params.put("posttime",mWeibo.getCreatedTime());
+            Log.i(TAG,"Post Time:"+mWeibo.getCreatedTime());
             params.put("userid",mUserId);
             Log.i(TAG,"Base64 Image String:"+base64PostImage);
             params.put("weiboid",mWeibo.getWeiboid());
-            params.put("image",base64PostImage);
+            if(base64PostImage!=null)
+                params.put("image",base64PostImage);
             JSONObject responseJSON = HttpAgent.fetchJSON(config.request_post,params,"utf-8");
             if(responseJSON==null){
                 return "-1";

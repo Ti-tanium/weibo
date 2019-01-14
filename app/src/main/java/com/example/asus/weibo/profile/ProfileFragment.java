@@ -36,7 +36,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_profile,container,false);
-        mAvatar=(ImageView)view.findViewById(R.id.avatar);
+        mAvatar=(ImageView)view.findViewById(R.id.detail_avatar);
         mAccountId=(TextView)view.findViewById(R.id.account);
         mMyPost=(LinearLayout)view.findViewById(R.id.mypost);
         mLoginBtn=(Button)view.findViewById(R.id.profile_login_btn);
