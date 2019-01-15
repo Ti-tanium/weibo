@@ -18,5 +18,6 @@
     <string name="unreachable_server">Can\'t reach the server right now,try again later.</string>
     <string name="login_note">press the button below to log in.</string>
     <string name="alert">Alert</string>
+    <string name="success_post">Succesfully Posted!</string>
 
 </resources>

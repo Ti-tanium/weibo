@@ -46,7 +46,7 @@ public class HttpAgent {
         return new String(getUrlBytes(urlSpec));
     }
 
-    public JSONObject fetchJSON(String url){
+    public static JSONObject fetchJSON(String url){
         try{
             String JSONString=getUrlString(url);
             Log.i(TAG,"received JSON:"+JSONString);

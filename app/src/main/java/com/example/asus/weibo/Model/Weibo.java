@@ -50,6 +50,9 @@ public class Weibo implements Serializable,Cloneable{
     }
 
     public String getCommentCount(){
+        if(comments==""){
+            return "0";
+        }
         String[] a=comments.split("`");
         return a.length+"";
     }

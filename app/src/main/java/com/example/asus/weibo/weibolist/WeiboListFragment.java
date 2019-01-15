@@ -22,6 +22,7 @@ import com.example.asus.weibo.Model.Weibo;
 import com.example.asus.weibo.R;
 import com.example.asus.weibo.config;
 import com.example.asus.weibo.weibodetail.WeiboDetailActivity;
+import com.sackcentury.shinebuttonlib.ShineButton;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -43,6 +44,20 @@ public class WeiboListFragment extends Fragment {
 
     public static Fragment newInstance(){
         return new WeiboListFragment();
+    }
+
+    public static void commentWeibo(String weiboid,String commentId){
+        for (Weibo w :mWeibolist){
+            if(w.getWeiboid().equals(weiboid)){
+                String old=w.getComments();
+                if(old==""){
+                    w.setComments(commentId);
+                }else {
+                    String newComment = old.concat("," + commentId);
+                    w.setComments(newComment);
+                }
+            }
+        }
     }
 
     @Nullable
@@ -82,6 +97,7 @@ public class WeiboListFragment extends Fragment {
         private TextView mCommentCount;
         private TextView mThumbupCount;
         private CardView mCardView;
+        private ShineButton mHeartBtn;
 
         public WeiboHolder(LayoutInflater inflater,ViewGroup parent){
             super(inflater.inflate(R.layout.card_weibo,parent,false));
@@ -93,6 +109,14 @@ public class WeiboListFragment extends Fragment {
             mCommentCount=(TextView)itemView.findViewById(R.id.card_comment_count);
             mThumbupCount=(TextView)itemView.findViewById(R.id.card_thumbup_count);
             mCardView=itemView.findViewById(R.id.cardview);
+            mHeartBtn=itemView.findViewById(R.id.card_heart_btn);
+            mHeartBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO fake thumb up , haven't syncing with server
+                    mThumbupCount.setText("1");
+                }
+            });
             mCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

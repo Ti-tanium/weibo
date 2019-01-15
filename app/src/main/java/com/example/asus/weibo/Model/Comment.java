@@ -1,5 +1,7 @@
 package com.example.asus.weibo.Model;
 
+import com.example.asus.weibo.Utils;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
@@ -40,6 +42,7 @@ public class Comment implements Serializable,Cloneable{
         weiboId=pweiboId;
         content=pcontent;
         commenter=commenterId;
+        commentTime=Utils.getNowDateTime();
     }
     public Comment(){
 
