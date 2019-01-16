@@ -43,7 +43,7 @@ public class LoginFragment extends Fragment {
         mPassword=(EditText)view.findViewById(R.id.password);
         mLoginBtn=(Button)view.findViewById(R.id.Login_btn);
         mRegisterLink=(TextView)view.findViewById(R.id.register_link);
-
+        getActivity().setTitle(getString(R.string.login));
         mLoginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
