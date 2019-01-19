@@ -4,9 +4,13 @@ CSU Application Development in practice：a simple version of sina weibo
 ## 1.login/logout
 <div>
   <img src="https://github.com/Ti-tanium/weibo/blob/master/image/login1.jpg"  height="480" width="270">
-  <img src="https://github.com/Ti-tanium/weibo/blob/master/image/login2.jpg"  height="480" width="270">
+  <img src="https://github.com/Ti-tanium/weibo/blob/master/image/login.jpg"  height="480" width="270">
   <img src="https://github.com/Ti-tanium/weibo/blob/master/image/logout.jpg"  height="480" width="270">
-</div>
+  <img src="https://github.com/Ti-tanium/weibo/blob/master/image/weibolist.jpg"  height="480" width="270">
+  <img src="https://github.com/Ti-tanium/weibo/blob/master/image/refresh.jpg"  height="480" width="270">
+  <img src="https://github.com/Ti-tanium/weibo/blob/master/image/post.jpg"  height="480" width="270">
+  <img src="https://github.com/Ti-tanium/weibo/blob/master/image/comment.jpg"  height="480" width="270">
+ </div>
 
 # Server
 
