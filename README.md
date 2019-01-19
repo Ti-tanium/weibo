@@ -8,4 +8,4 @@ CSU Application Development in practice：a simple version of sina weibo
 # Server
 Based on Koa2
 To run the server,change your current directory to the server.And run the following command:
->npm run dev
+```npm run dev```
