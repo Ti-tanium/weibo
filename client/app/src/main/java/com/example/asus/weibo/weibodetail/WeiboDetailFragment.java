@@ -58,6 +58,9 @@ public class WeiboDetailFragment extends Fragment {
     private static String TAG="WeiboDetailFragment";
     private String userId;
 
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -19,5 +19,6 @@
     <string name="login_note">press the button below to log in.</string>
     <string name="alert">Alert</string>
     <string name="success_post">Succesfully Posted!</string>
+    <string name="network_err_alert">Network Error</string>
 
 </resources>

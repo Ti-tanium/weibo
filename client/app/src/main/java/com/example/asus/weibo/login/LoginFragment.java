@@ -88,5 +88,4 @@ public class LoginFragment extends Fragment {
             Toast.makeText(getActivity(),s,Toast.LENGTH_SHORT).show();
         }
     }
-
 }

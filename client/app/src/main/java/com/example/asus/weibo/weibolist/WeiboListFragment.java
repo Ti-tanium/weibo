@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.asus.weibo.HttpAgent;
 import com.example.asus.weibo.Model.Weibo;
 import com.example.asus.weibo.R;
+import com.example.asus.weibo.Utils;
 import com.example.asus.weibo.config;
 import com.example.asus.weibo.weibodetail.WeiboDetailActivity;
 import com.sackcentury.shinebuttonlib.ShineButton;
@@ -163,25 +164,31 @@ public class WeiboListFragment extends Fragment {
         }
     }
 
-    private class pullWeiboTask extends AsyncTask<Void,Void,Void>{
+    private class pullWeiboTask extends AsyncTask<Void,Void,String>{
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected String doInBackground(Void... voids) {
             Log.i(TAG,"Start Pulling Data from server.");
             JSONObject responseObject=new HttpAgent().fetchJSON(config.get_weibo_list);
-            parseWeiboListJSON(responseObject);
-            return null;
+            String code=parseWeiboListJSON(responseObject);
+            return code;
         }
 
         @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
+        protected void onPostExecute(String code) {
+            if(code=="-1"){
+                Utils.showAlertDialog(getString(R.string.alert),getString(R.string.network_err_alert),getActivity()).show();
+                return;
+            }
             updateUI();
         }
     }
 
-    public void parseWeiboListJSON(JSONObject jsonObject){
+    public String parseWeiboListJSON(JSONObject jsonObject){
         try{
             mWeibolist.clear();
+            if(jsonObject==null){
+                return "-1";
+            }
             JSONArray weibolist=jsonObject.getJSONArray("sql");
             for(int i=0;i<weibolist.length();i++){
                 JSONObject weiboJSON=(JSONObject) weibolist.get(i);
@@ -195,8 +202,10 @@ public class WeiboListFragment extends Fragment {
                 weibo.setCreatedTime(weiboJSON.getString("CREATED_TIME"));
                 mWeibolist.add(weibo);
             }
+            return "1";
         }catch (JSONException je){
             Log.e(TAG,"Failed to get sql from JSON"+je.fillInStackTrace());
+            return "-1";
         }
     }
 

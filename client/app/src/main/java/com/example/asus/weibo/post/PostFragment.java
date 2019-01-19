@@ -88,7 +88,6 @@ public class PostFragment extends Fragment {
         return view;
     }
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK) {
@@ -126,7 +125,6 @@ public class PostFragment extends Fragment {
         // SDK > 19
         imageRealPath= getRealPathFromUri_AboveApi19(context, uri);
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
