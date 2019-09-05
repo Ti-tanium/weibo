@@ -1,6 +1,21 @@
 # weibo
 CSU Application Development in practice：a simple version of sina weibo
+
 # client
+## Design
+user case Diagram are as follows
+
+<img src="/image/weibo_usecase.png"/>
+
+ER-Diagram
+
+<img src="/image/weibo_db.jpg"/>
+
+MVC structure
+
+<img src="/image/weibo_MVC.png"/>
+
+## UI
 <div>
   <img src="https://github.com/Ti-tanium/weibo/blob/master/image/login1.jpg"  height="480" width="270">
   <img src="https://github.com/Ti-tanium/weibo/blob/master/image/login.jpg"  height="480" width="270">
